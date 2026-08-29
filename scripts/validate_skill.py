@@ -12,6 +12,8 @@ errors: list[str] = []
 required = [
     "SKILL.md",
     "README.md",
+    "LICENSE",
+    "NOTICE",
     "references/core-compliance.md",
     "references/xiaohongshu.md",
     "references/project-profile.md",
