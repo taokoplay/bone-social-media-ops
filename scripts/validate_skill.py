@@ -22,6 +22,7 @@ required = [
     "references/cold-start-and-account-analysis.md",
     "references/content-archive.md",
     "references/performance-data-governance.md",
+    "references/cross-channel-acquisition-analysis.md",
     "assets/project-profile-template.md",
     "assets/content-brief-template.md",
     "assets/compliance-report-template.md",
@@ -73,6 +74,10 @@ for phrase in (
     "本轮不同时改",
     "诊断层级",
     "title_promise",
+    "App Store 自然搜索/浏览",
+    "不得把 Correlated 写成 Direct",
+    "Apple Ads 广告搜索词报告不自动等同于全市场热词榜",
+    "完整 ASO、广告投放或产品经营分析",
 ):
     if phrase not in combined:
         errors.append(f"missing safety invariant: {phrase}")
@@ -106,7 +111,7 @@ try:
     required_behavior_tags = {
         "facts", "xiaohongshu", "rights", "privacy", "commercial-disclosure",
         "external-write", "automation", "cross-platform", "high-risk-domain", "page-change",
-        "cold-start", "low-traffic", "analytics",
+        "cold-start", "low-traffic", "analytics", "app-store", "cross-channel",
     }
     for tag in sorted(required_behavior_tags - behavior_tags):
         errors.append(f"behavior eval coverage missing tag: {tag}")

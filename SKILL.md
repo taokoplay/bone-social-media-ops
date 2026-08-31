@@ -2,7 +2,7 @@
 name: bone-social-media-ops
 description: 面向各种项目与产品的通用自媒体运营、合规审核和安全发布 Skill。只要用户要为产品/品牌/项目创建、审核、修改、排期或发布公开自媒体内容，检查产品事实、AI/商业声明、广告导流、版权隐私，操作发布页面，设计账号运营 SOP，研究同品类账号/帖子，或分析自有文章与评论，即使只说“发篇小红书笔记”“帮品牌号过审”“看看会不会违规”“运营这个账号”，也应优先使用。明确用于公开平台的封面、配图或视频素材也应触发本 Skill 做最低限度的平台声明、权利和真实性检查，并与生图/视频 Skill 组合。V1 仅对小红书提供正式平台规则审核；其他平台请求仍应触发，但只能先做通用事实/权益审核并核验官方规则，建成规则包后才能声称完整支持。纯文案润色且不涉及公开发布、普通产品功能/价格/市场竞品分析、与自媒体无关的数据统计或仅创建已定义好的定时任务时不使用。
 metadata:
-  version: "1.1.0"
+  version: "1.2.0"
 ---
 
 # Bone Social Media Ops
@@ -42,13 +42,14 @@ V1 不宣称支持：
 | 审核报告、发布包、网页辅助发布 | `references/review-and-publish.md` | `assets/compliance-report-template.md`、`assets/publish-package-template.md` |
 | 同品类调研、评论或自动化设计 | `references/extension-contracts.md` | 按用户交付物决定 |
 | 自有内容数据补录、指标快照、文章分析、复盘、运营分析工作台、数据仓契约或表现分析 | `references/performance-data-governance.md` | 以每期内容包与数据复盘为唯一事实源，输出分析到行动闭环 |
+| App Store、Apple Ads、官网与自媒体的项目流量地图、获客漏斗或跨渠道分析 | `references/cross-channel-acquisition-analysis.md` + `references/performance-data-governance.md` | 保留渠道原始口径和归因等级，以激活/留存验证用户价值 |
 | 账号诊断、低流量判断、新号起号、冷启动实验或内容基线 | `references/cold-start-and-account-analysis.md` + `references/performance-data-governance.md` | 使用前者诊断框架、后者数据口径 |
 | 建立发文目录、保存每期内容、同步 Obsidian | `references/content-archive.md` | 每期内容包结构 |
 | 小红书封面、连续图文卡片、原生感审核 | `references/xiaohongshu-visual-editorial.md` | 结合当前发布包 |
 | 小红书短视频、开发日志、产品宣传片、视频质感审核 | `references/xiaohongshu-video-editorial.md` | 先过真实素材与声音 Gate |
 | 产出封面、大字卡、贴纸等设计素材 | `references/asset-production-qa.md` | 使用文末自检清单 |
 
-不要把具体项目事实写回 Skill 本体。研究对象是账号、帖子、评论、选题和平台表现时由本 Skill 主导；研究产品功能、价格、市场定位和竞争格局时使用 `competitor-analysis`，两者兼有则组合使用。自有平台数据需要运营解释且交付 xlsx 时，本 Skill 负责权限、指标口径和运营分析，`xlsx` 负责表格文件。
+不要把具体项目事实写回 Skill 本体。研究对象是账号、帖子、评论、选题和平台表现时由本 Skill 主导；研究产品功能、价格、市场定位和竞争格局时使用 `competitor-analysis`，两者兼有则组合使用。对 App 项目，可将 App Store、Apple Ads、官网和 App 内数据纳入项目流量地图与内容获客漏斗，但完整 ASO、广告出价、深度归因和产品经营分析仍交给专项流程。自有平台数据需要运营解释且交付 xlsx 时，本 Skill 负责权限、指标口径和运营分析，`xlsx` 负责表格文件。
 
 ## 证据纪律
 
