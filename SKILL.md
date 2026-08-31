@@ -2,7 +2,7 @@
 name: bone-social-media-ops
 description: 面向各种项目与产品的通用自媒体运营、合规审核和安全发布 Skill。只要用户要为产品/品牌/项目创建、审核、修改、排期或发布公开自媒体内容，检查产品事实、AI/商业声明、广告导流、版权隐私，操作发布页面，设计账号运营 SOP，研究同品类账号/帖子，或分析自有文章与评论，即使只说“发篇小红书笔记”“帮品牌号过审”“看看会不会违规”“运营这个账号”，也应优先使用。明确用于公开平台的封面、配图或视频素材也应触发本 Skill 做最低限度的平台声明、权利和真实性检查，并与生图/视频 Skill 组合。V1 仅对小红书提供正式平台规则审核；其他平台请求仍应触发，但只能先做通用事实/权益审核并核验官方规则，建成规则包后才能声称完整支持。纯文案润色且不涉及公开发布、普通产品功能/价格/市场竞品分析、与自媒体无关的数据统计或仅创建已定义好的定时任务时不使用。
 metadata:
-  version: "1.0.0"
+  version: "1.1.0"
 ---
 
 # Bone Social Media Ops
@@ -40,9 +40,13 @@ V1 不宣称支持：
 | 小红书内容、账号、发布或评论 | `references/xiaohongshu.md` | 按任务选下列模板 |
 | 新项目建档、事实不足或跨项目复用 | `references/project-profile.md` | `assets/project-profile-template.md` |
 | 审核报告、发布包、网页辅助发布 | `references/review-and-publish.md` | `assets/compliance-report-template.md`、`assets/publish-package-template.md` |
-| 同品类调研、数据、评论或自动化设计 | `references/extension-contracts.md` | 按用户交付物决定 |
-| 账号诊断、低流量判断、新号起号、冷启动实验或内容基线 | `references/cold-start-and-account-analysis.md` | 使用该文件默认诊断输出 |
+| 同品类调研、评论或自动化设计 | `references/extension-contracts.md` | 按用户交付物决定 |
+| 自有内容数据补录、指标快照、文章分析、复盘、运营分析工作台、数据仓契约或表现分析 | `references/performance-data-governance.md` | 以每期内容包与数据复盘为唯一事实源，输出分析到行动闭环 |
+| 账号诊断、低流量判断、新号起号、冷启动实验或内容基线 | `references/cold-start-and-account-analysis.md` + `references/performance-data-governance.md` | 使用前者诊断框架、后者数据口径 |
 | 建立发文目录、保存每期内容、同步 Obsidian | `references/content-archive.md` | 每期内容包结构 |
+| 小红书封面、连续图文卡片、原生感审核 | `references/xiaohongshu-visual-editorial.md` | 结合当前发布包 |
+| 小红书短视频、开发日志、产品宣传片、视频质感审核 | `references/xiaohongshu-video-editorial.md` | 先过真实素材与声音 Gate |
+| 产出封面、大字卡、贴纸等设计素材 | `references/asset-production-qa.md` | 使用文末自检清单 |
 
 不要把具体项目事实写回 Skill 本体。研究对象是账号、帖子、评论、选题和平台表现时由本 Skill 主导；研究产品功能、价格、市场定位和竞争格局时使用 `competitor-analysis`，两者兼有则组合使用。自有平台数据需要运营解释且交付 xlsx 时，本 Skill 负责权限、指标口径和运营分析，`xlsx` 负责表格文件。
 
@@ -96,7 +100,7 @@ V1 只有小红书正式规则包。用户要求其他平台时：
 
 ### 3. 生成内容简报与最终发布包
 
-先明确目标、受众、账号阶段、内容支柱、唯一主要行动。再生成：
+先明确目标、受众、账号阶段、内容支柱、唯一主要行动。涉及小红书封面或连续图文时，同时读取 `references/xiaohongshu-visual-editorial.md`：先规划封面→证据/上下文→一页一观点→收束 CTA 的滑动叙事；封面只承担钩子、身份/证据线索和一个主要视觉焦点，不把全部卖点堆在首图。涉及短视频、开发日志、App 演示或宣传片时读取 `references/xiaohongshu-video-editorial.md`：先选择 UGC/高质感宣传片/混合路线，核对真实 App 素材与声音 Gate；缺真实证据时只交付导演脚本或概念样片，不用字卡拼接冒充发布候选。再生成：
 
 - 标题与备选标题
 - 正文
@@ -154,7 +158,7 @@ V1 只有小红书正式规则包。用户要求其他平台时：
 
 ### 6. 将本期资料归档并留下可复核记录
 
-按 `references/content-archive.md` 将最终内容、合规结论、素材清单、用户确认、发布结果和数据快照写回同一期内容包。跨期总览使用动态索引，不另建一份会过时的静态清单。
+按 `references/content-archive.md` 将最终内容、合规结论、素材清单、用户确认、发布结果和数据快照写回同一期内容包。涉及表现数据时同时执行 `references/performance-data-governance.md`：使用稳定 `issue_id`、追加不可覆盖快照、区分未知与 0，并优先做同生命周期比较。跨期总览使用动态索引，不另建一份会过时的静态清单。
 
 完成后报告：
 

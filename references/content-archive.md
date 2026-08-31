@@ -49,7 +49,7 @@
 - 文件夹使用 `{YYYY-MM-DD}-{简短主题}`，例如 `2026-08-28-产品共创招募`
 - 同一天只有一篇时不加序号；同一天多篇时，从第二篇起使用 `2026-08-28-02-主题`、`2026-08-28-03-主题`
 - 日期表示内容首次建立或原计划发布日；发布延期时不重复建立新目录，在 frontmatter 和发布记录中更新实际日期
-- `issue` 可作为内部稳定 ID保留，但不参与文件夹命名
+- 新内容使用 `issue_id: {平台代码}-{年份}-{三位序号}` 作为稳定主键，创建后不因延期、改题或目录改名而变化；旧 `issue` 只兼容读取，不参与文件夹命名
 - 素材使用 `{YYYY-MM-DD}-{同日序号可选}-{顺序}-{用途}-{版本}.{扩展名}`
 - 平台发布后继续更新同一个内容包，不另建重复发布稿或复盘稿
 
@@ -59,9 +59,12 @@
 
 `idea → drafting → reviewing → approved → published → reviewing-data → archived`
 
+辅助状态：`deferred` 表示暂停排期，`cancelled` 表示明确取消但保留历史；二者都不删除内容包。
+
 - `approved` 只表示用户确认了当前固定版本；内容实质变化后退回 `reviewing`
 - `published` 必须有平台内容 ID、公开 URL 或可验证发布结果
 - 数据复盘保留每次快照，不覆盖历史数值
+- 指标字段、缺失值、生命周期和质量校验按 `performance-data-governance.md` 执行
 
 ## 动态总览
 
@@ -73,7 +76,7 @@
 type: social-content-issue
 project: "{项目名}"
 channel: "{平台}"
-issue: "{可选内部稳定 ID}"
+issue_id: "{平台代码}-{年份}-{三位序号}"
 date: "YYYY-MM-DD"
 campaign: "{主题}"
 objective: "{目标}"

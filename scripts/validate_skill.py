@@ -21,6 +21,7 @@ required = [
     "references/extension-contracts.md",
     "references/cold-start-and-account-analysis.md",
     "references/content-archive.md",
+    "references/performance-data-governance.md",
     "assets/project-profile-template.md",
     "assets/content-brief-template.md",
     "assets/compliance-report-template.md",
@@ -66,6 +67,12 @@ for phrase in (
     "每一期发文建立完整内容包",
     "不得把发布不足、后台延迟或个位数样本直接解释为限流",
     "新号必须先养若干天",
+    "未知、平台未提供、暂不可得统一视为 `null`",
+    "不同生命周期的最新快照只能称为“已知规模”",
+    "决策摘要 → 数据健康 → 表现趋势 → 同生命周期对照 → 文章拆解 → 漏斗诊断 → 行动与实验",
+    "本轮不同时改",
+    "诊断层级",
+    "title_promise",
 ):
     if phrase not in combined:
         errors.append(f"missing safety invariant: {phrase}")
