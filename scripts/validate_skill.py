@@ -20,10 +20,12 @@ required = [
     "references/review-and-publish.md",
     "references/extension-contracts.md",
     "references/cold-start-and-account-analysis.md",
+    "references/operating-plan-and-okr-loop.md",
     "references/content-archive.md",
     "references/performance-data-governance.md",
     "references/cross-channel-acquisition-analysis.md",
     "assets/project-profile-template.md",
+    "assets/operating-plan-and-okr-template.md",
     "assets/content-brief-template.md",
     "assets/compliance-report-template.md",
     "assets/publish-package-template.md",
@@ -78,6 +80,9 @@ for phrase in (
     "不得把 Correlated 写成 Direct",
     "Apple Ads 广告搜索词报告不自动等同于全市场热词榜",
     "完整 ASO、广告投放或产品经营分析",
+    "每次本 Skill 触发时，在执行当前任务前先恢复运营控制面",
+    "计划—实际—判断—动作",
+    "计划文档是策略事实源，Todo 是执行投影",
 ):
     if phrase not in combined:
         errors.append(f"missing safety invariant: {phrase}")
@@ -112,6 +117,7 @@ try:
         "facts", "xiaohongshu", "rights", "privacy", "commercial-disclosure",
         "external-write", "automation", "cross-platform", "high-risk-domain", "page-change",
         "cold-start", "low-traffic", "analytics", "app-store", "cross-channel",
+        "operating-plan", "okr", "progress-review",
     }
     for tag in sorted(required_behavior_tags - behavior_tags):
         errors.append(f"behavior eval coverage missing tag: {tag}")
