@@ -2,7 +2,7 @@
 name: bone-social-media-ops
 description: 面向各种项目与产品的通用自媒体运营、合规审核和安全发布 Skill。只要用户要为产品/品牌/项目创建、审核、修改、排期或发布公开自媒体内容，检查产品事实、AI/商业声明、广告导流、版权隐私，操作发布页面，设计账号运营 SOP，研究同品类账号/帖子，或分析自有文章与评论，即使只说“发篇小红书笔记”“用 App IP/吉祥物口吻写一篇”“做角色连载或 IP 图文”“帮品牌号过审”“看看会不会违规”“运营这个账号”，也应优先使用。明确用于公开平台的封面、配图或视频素材也应触发本 Skill 做最低限度的平台声明、权利和真实性检查，并按需与 App IP、生图或视频 Skill 组合。V1 仅对小红书提供正式平台规则审核；其他平台请求仍应触发，但只能先做通用事实/权益审核并核验官方规则，建成规则包后才能声称完整支持。纯文案润色且不涉及公开发布、从零设计角色本体、普通产品功能/价格/市场竞品分析、与自媒体无关的数据统计或仅创建已定义好的定时任务时不使用。
 metadata:
-  version: "1.4.0"
+  version: "1.5.0"
 ---
 
 # Bone Social Media Ops
@@ -18,6 +18,8 @@ V1 支持：
 - 建立项目内容档案和账号对外口径
 - 恢复或建立运营计划、阶段 OKR、指标体系和滚动任务
 - 选题、内容简报、标题、正文、素材与标签的发布包
+- 基于核心观点、说服路径、信息节奏和自然表达门槛的内容创作
+- 对标账号的结构化蒸馏、可迁移模式识别与单变量实验设计
 - 事实、平台、权益、素材和运营五层合规审核
 - 小红书 AI 内容声明与账号身份判断
 - 浏览器辅助填写、上传和发布前复核
@@ -38,6 +40,8 @@ V1 不宣称支持：
 | 当前任务 | 读取文件 | 推荐模板 |
 |---|---|---|
 | 任意审核、创作或发布 | `references/core-compliance.md` | `assets/content-brief-template.md` |
+| 从主题或素材创作标题、正文、口播、发布包，或需要提高内容传播表达 | `references/content-strategy-and-writing.md` | `assets/content-brief-template.md` |
+| 公开内容去模板腔、自然化改稿、账号语气校准 | `references/natural-language-editing.md` | 先锁定不可改事实与声明，再做编辑 |
 | 小红书内容、账号、发布或评论 | `references/xiaohongshu.md` | 按任务选下列模板 |
 | 新项目建档、事实不足或跨项目复用 | `references/project-profile.md` | `assets/project-profile-template.md` |
 | 任意持续运营任务的计划/OKR检查、进度跟进、任务优化；或当前项目没有有效运营计划 | `references/operating-plan-and-okr-loop.md` | `assets/operating-plan-and-okr-template.md` |
@@ -46,6 +50,7 @@ V1 不宣称支持：
 | 自有内容数据补录、指标快照、文章分析、复盘、运营分析工作台、数据仓契约或表现分析 | `references/performance-data-governance.md` | 以每期内容包与数据复盘为唯一事实源，输出分析到行动闭环 |
 | App Store、Apple Ads、官网与自媒体的项目流量地图、获客漏斗或跨渠道分析 | `references/cross-channel-acquisition-analysis.md` + `references/performance-data-governance.md` | 保留渠道原始口径和归因等级，以激活/留存验证用户价值 |
 | 账号诊断、低流量判断、新号起号、冷启动实验或内容基线 | `references/cold-start-and-account-analysis.md` + `references/performance-data-governance.md` | 使用前者诊断框架、后者数据口径 |
+| 对标博主/竞品账号拆解、爆款与普通内容比较、内容打法蒸馏 | `references/benchmark-account-distillation.md` + `references/extension-contracts.md` | 输出样本边界、观察/假设、可迁移原则与实验，不复刻身份或原文 |
 | 建立发文目录、保存每期内容、同步 Obsidian | `references/content-archive.md` | 每期内容包结构 |
 | 小红书封面、连续图文卡片、原生感审核 | `references/xiaohongshu-visual-editorial.md` | 结合当前发布包 |
 | 小红书短视频、开发日志、产品宣传片、视频质感审核 | `references/xiaohongshu-video-editorial.md` | 先过真实素材与声音 Gate |
@@ -55,6 +60,16 @@ V1 不宣称支持：
 不要把具体项目事实写回 Skill 本体。研究对象是账号、帖子、评论、选题和平台表现时由本 Skill 主导；研究产品功能、价格、市场定位和竞争格局时使用 `competitor-analysis`，两者兼有则组合使用。对 App 项目，可将 App Store、Apple Ads、官网和 App 内数据纳入项目流量地图与内容获客漏斗，但完整 ASO、广告出价、深度归因和产品经营分析仍交给专项流程。自有平台数据需要运营解释且交付 xlsx 时，本 Skill 负责权限、指标口径和运营分析，`xlsx` 负责表格文件。
 
 已有持续 App IP 但目标是公开内容时，仍由本 Skill 主导选题、标题、正文、视觉编辑、声明、审核、归档和发布；只在需要新建或实质修改 IP 身份、三视图、人格、业务状态、动作、表情、换装或正式生产资产时组合使用 `bone-app-ip-design`。不要为普通贴纸、一次性插画或已有透明资产排版启动完整 IP 设计流程，也不要在本 Skill 内复制其角色生产规范。
+
+### 专项能力组合边界
+
+本 Skill 负责运营目标、内容简报、事实与来源、素材权利、平台声明、最终审核和外部发布门禁；专项 Skill 只负责其生产环节。调用前检查当前会话是否真的存在对应 Skill，未安装时说明能力缺口并使用现有替代能力，不假装已经执行。
+
+- **视频/音频转文字**：用户提供视频链接、本地音视频并要求提取字幕或摘要时，可组合 `video-to-subtitle-summary`。转写结果先校对专有名词、数字与引语上下文，再作为选题或文案素材；第三方内容不得改写后冒充原创。主 Skill 不内置 FFmpeg、Whisper、平台下载器或付费解析 API。
+- **封面与配图生成**：本 Skill 先定义图片用途、证据角色、比例、素材来源、AI 参与和声明，再按用户指定或当前默认路由到 `proma-gpt-image-2`、`gpt-image2` 等生图 Skill。生图完成后回到本 Skill 做移动端、真实性、权益和发布审核。
+- **连续图文/社交卡片**：本 Skill 先给出封面→证据→一页一观点→收束 CTA 的页纲；存在 `guizang-social-card-skill` 或其他卡片生产 Skill 时可交给其排版导出，再回到本 Skill 终审。不要把版式库、HTML→PNG 或 Live Photo 渲染引擎复制进本 Skill。
+- **公众号内容工作室**：公众号任务仍触发本 Skill 做通用事实与权益审核；存在公众号专项 Skill 时，将选题、写作、排版、预览和草稿箱能力路由过去。本 Skill 未建立微信正式规则包前，不声称完整公众号合规支持，也不复制微信发布脚本。任何草稿箱或发布动作仍需本轮明确授权。
+- **网页 PPT**：运营报告或内容需要横向演示时组合 `guizang-ppt-skill`；它不参与小红书内容规则判断。
 
 ## 证据纪律
 
@@ -81,7 +96,7 @@ V1 不宣称支持：
 6. 平台页面辅助填写或发布
 7. 发布后复盘
 8. 账号分析、低流量诊断与冷启动实验
-9. 同品类调研、数据或评论能力设计
+9. 同品类调研、对标账号蒸馏、数据或评论能力设计
 10. 运营计划、OKR、进度与任务滚动优化
 
 V1 只有小红书正式规则包。用户要求其他平台时：
@@ -112,7 +127,9 @@ V1 只有小红书正式规则包。用户要求其他平台时：
 
 ### 3. 生成内容简报与最终发布包
 
-先明确目标、受众、账号阶段、内容支柱、唯一主要行动。若持续 App IP、吉祥物、品牌角色或人格化物件担任讲述者、导游、执行者、反馈者、关系载体或品牌锚点，读取 `references/ip-led-content.md`：先锁定主要发言身份、本期 IP 职责、人格与责任边界、当前资产状态和真实 App 证据；只有出现角色生产缺口时才组合使用 `bone-app-ip-design`。涉及小红书封面或连续图文时，同时读取 `references/xiaohongshu-visual-editorial.md`：先规划封面→证据/上下文→一页一观点→收束 CTA 的滑动叙事；封面只承担钩子、身份/证据线索和一个主要视觉焦点，不把全部卖点堆在首图。涉及短视频、开发日志、App 演示或宣传片时读取 `references/xiaohongshu-video-editorial.md`：先选择 UGC/高质感宣传片/混合路线，核对真实 App 素材与声音 Gate；缺真实证据时只交付导演脚本或概念样片，不用字卡拼接冒充发布候选。再生成：
+先明确目标、受众、账号阶段、内容支柱、核心观点、准备表达的主张及唯一主要行动。需要从主题或素材形成新内容时读取 `references/content-strategy-and-writing.md`，先选择核心观点、主要说服路径、证据和信息节奏，再写正文；标题和封面钩子必须由正文可兑现。成稿后读取 `references/natural-language-editing.md`，消除空洞开头、机械排比、模糊共识和模板连接词，但不得为了“人味”虚构经历、故意写错或规避 AI 声明。
+
+若持续 App IP、吉祥物、品牌角色或人格化物件担任讲述者、导游、执行者、反馈者、关系载体或品牌锚点，读取 `references/ip-led-content.md`：先锁定主要发言身份、本期 IP 职责、人格与责任边界、当前资产状态和真实 App 证据；只有出现角色生产缺口时才组合使用 `bone-app-ip-design`。涉及小红书封面或连续图文时，同时读取 `references/xiaohongshu-visual-editorial.md`：先规划封面→证据/上下文→一页一观点→收束 CTA 的滑动叙事；封面只承担钩子、身份/证据线索和一个主要视觉焦点，不把全部卖点堆在首图。涉及短视频、开发日志、App 演示或宣传片时读取 `references/xiaohongshu-video-editorial.md`：先选择 UGC/高质感宣传片/混合路线，核对真实 App 素材与声音 Gate；缺真实证据时只交付导演脚本或概念样片，不用字卡拼接冒充发布候选。再生成：
 
 - 标题与备选标题
 - 正文
